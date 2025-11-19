@@ -25,3 +25,12 @@ code/01_make_table.R to Generates the summary table of top 10 F1 winners code/02
 ## Output
 
 Table: output/table_top_winners.csv Figure: output/figure_top_winners.png Final Report: f1_report.html
+
+## Package environment (renv)
+
+This project uses the **renv** package to manage the R package versions.
+
+To synchronize the package environment before building the report, run:
+make install
+
+This command will run renv::restore() and install the packages recorded in renv.lock.

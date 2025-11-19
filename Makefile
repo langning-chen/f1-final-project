@@ -5,7 +5,8 @@ R = Rscript --vanilla
 all: f1_report.html
 
 install:
-	$(R) -e "options(repos=c(CRAN='https://cloud.r-project.org')); pkgs <- c('tidyverse','gt','forcats','rmarkdown'); to_install <- setdiff(pkgs, rownames(installed.packages())); if(length(to_install)) install.packages(to_install)"
+	$(R) -e "options(repos = c(CRAN = 'https://cloud.r-project.org')); install.packages('renv'); renv::restore(prompt = FALSE)"
+
 
 output/table_top_winners.csv: data/winners_f1_1950_2025_v2.csv code/01_make_table.R
 	$(R) code/01_make_table.R
