@@ -19,3 +19,8 @@ f1_report.html: f1_report.Rmd output/table_top_winners.csv output/figure_top_win
 
 clean:
 	rm -f output/table_top_winners.csv output/figure_top_winners.png f1_report.html
+
+docker-run:
+	docker run --rm \
+	  -v $(PWD)/report:/project/report \
+	  langningchen/f1-final-project

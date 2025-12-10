@@ -34,3 +34,22 @@ To synchronize the package environment before building the report, run:
 make install
 
 This command will run renv::restore() and install the packages recorded in renv.lock.
+
+## Docker usage
+
+### 1. Build the Docker image
+
+```bash
+docker build -t langningchen/f1-final-project .
+
+### Docker note
+Docker image build starts successfully and reaches renv::restore(),
+but stalls / fails during compilation of the v8 package (unexpected EOF).
+This appears to be due to source compilation of v8 inside Docker on Mac.
+
+### Run the Docker container and generate the report
+
+To generate the report in a local `report/` folder, run:
+
+```bash
+make docker-run
